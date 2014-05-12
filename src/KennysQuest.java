@@ -41,6 +41,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextPane;
+import javax.swing.JTextArea;
 
 ///////////////////////////////
 
@@ -107,63 +108,79 @@ public class KennysQuest {
 		{
 			System.out.println("HELLO");
 		}
+		
+		
+		
 		//frame.pack();
 		//frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		//========================================================================
-		JButton btnNewButton = new JButton("New Game");
+//=====================================================================
+		
+		
+//=====================================================================
+		JButton btnNewGame = new JButton("New Game");
 		JButton btnSave = new JButton("SAVE");
-		JButton btnNewButton_1 = new JButton("HELP");
-		JButton btnNewButton_2 = new JButton("Quit Game");
+		JButton btnHelp = new JButton("HELP");
+		JButton btnQuitGame = new JButton("Quit Game");
 		
 		
-		btnNewButton_2.addActionListener(new ActionListener() {
+		btnQuitGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);
 			}
 		});
-		btnNewButton.addActionListener(new ActionListener()
+		btnNewGame.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
 				System.out.println("NEW GAME!!!");
+				
 				//btnSave.setVisible(false);
 				
 			}
 			
 		});
 		
-		JButton btnNewButton_3 = new JButton("TEST");
-		btnNewButton_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
+		JButton btnTest = new JButton("TEST");
+		
 		SpringLayout springLayout = new SpringLayout();
-		springLayout.putConstraint(SpringLayout.WEST, btnNewButton, 0, SpringLayout.WEST, frame.getContentPane());
-		springLayout.putConstraint(SpringLayout.NORTH, btnNewButton_3, 6, SpringLayout.SOUTH, btnNewButton_2);
-		springLayout.putConstraint(SpringLayout.EAST, btnNewButton_3, 0, SpringLayout.EAST, btnNewButton);
-		springLayout.putConstraint(SpringLayout.NORTH, btnNewButton_2, 6, SpringLayout.SOUTH, btnNewButton_1);
-		springLayout.putConstraint(SpringLayout.EAST, btnNewButton_2, 0, SpringLayout.EAST, btnNewButton);
-		springLayout.putConstraint(SpringLayout.NORTH, btnNewButton_1, 6, SpringLayout.SOUTH, btnSave);
-		springLayout.putConstraint(SpringLayout.EAST, btnNewButton_1, 0, SpringLayout.EAST, btnNewButton);
-		springLayout.putConstraint(SpringLayout.EAST, btnSave, 0, SpringLayout.EAST, btnNewButton);
-		springLayout.putConstraint(SpringLayout.WEST, btnNewButton_3, 0, SpringLayout.WEST, frame.getContentPane());
-		springLayout.putConstraint(SpringLayout.WEST, btnNewButton_2, 0, SpringLayout.WEST, frame.getContentPane());
-		springLayout.putConstraint(SpringLayout.WEST, btnNewButton_1, 0, SpringLayout.WEST, frame.getContentPane());
-		springLayout.putConstraint(SpringLayout.NORTH, btnSave, 6, SpringLayout.SOUTH, btnNewButton);
+		springLayout.putConstraint(SpringLayout.WEST, btnNewGame, 0, SpringLayout.WEST, frame.getContentPane());
+		springLayout.putConstraint(SpringLayout.NORTH, btnTest, 6, SpringLayout.SOUTH, btnQuitGame);
+		springLayout.putConstraint(SpringLayout.EAST, btnTest, 0, SpringLayout.EAST, btnNewGame);
+		springLayout.putConstraint(SpringLayout.NORTH, btnQuitGame, 6, SpringLayout.SOUTH, btnHelp);
+		springLayout.putConstraint(SpringLayout.EAST, btnQuitGame, 0, SpringLayout.EAST, btnNewGame);
+		springLayout.putConstraint(SpringLayout.NORTH, btnHelp, 6, SpringLayout.SOUTH, btnSave);
+		springLayout.putConstraint(SpringLayout.EAST, btnHelp, 0, SpringLayout.EAST, btnNewGame);
+		springLayout.putConstraint(SpringLayout.EAST, btnSave, 0, SpringLayout.EAST, btnNewGame);
+		springLayout.putConstraint(SpringLayout.WEST, btnTest, 0, SpringLayout.WEST, frame.getContentPane());
+		springLayout.putConstraint(SpringLayout.WEST, btnQuitGame, 0, SpringLayout.WEST, frame.getContentPane());
+		springLayout.putConstraint(SpringLayout.WEST, btnHelp, 0, SpringLayout.WEST, frame.getContentPane());
+		springLayout.putConstraint(SpringLayout.NORTH, btnSave, 6, SpringLayout.SOUTH, btnNewGame);
 		springLayout.putConstraint(SpringLayout.WEST, btnSave, 0, SpringLayout.WEST, frame.getContentPane());
-		springLayout.putConstraint(SpringLayout.NORTH, btnNewButton, 35, SpringLayout.NORTH, frame.getContentPane());
+		springLayout.putConstraint(SpringLayout.NORTH, btnNewGame, 35, SpringLayout.NORTH, frame.getContentPane());
 		frame.getContentPane().setLayout(springLayout);
-		frame.getContentPane().add(btnNewButton);
+		frame.getContentPane().add(btnNewGame);
 		frame.getContentPane().add(btnSave);
-		frame.getContentPane().add(btnNewButton_1);
-		frame.getContentPane().add(btnNewButton_2);
-		frame.getContentPane().add(btnNewButton_3);
+		frame.getContentPane().add(btnHelp);
+		frame.getContentPane().add(btnQuitGame);
+		frame.getContentPane().add(btnTest);
 		
 		JPanel panel = new JPanel();
+		
+		//========================================================================
+		// panel.add(picLabel);
+		 
+		 final JTextArea txtrTest = new JTextArea();
+		 
+		 txtrTest.setEditable(false);
+		 txtrTest.setText("test");
+		 txtrTest.setBounds(37, 31, 555, 302);
+		 panel.add(txtrTest);
+		
+		
+		//========================================================================
 
 		
-		panel.setVisible(false);
+		//panel.setVisible(false);
 		
 		
 
@@ -171,43 +188,43 @@ public class KennysQuest {
 //		JPanel ne = new PanelImage("7128-south-park-wallpaper-94376.jpg");
 //		panel.paintComponents(null);
 		
-		springLayout.putConstraint(SpringLayout.EAST, btnNewButton, -21, SpringLayout.WEST, panel);
+		springLayout.putConstraint(SpringLayout.EAST, btnNewGame, -21, SpringLayout.WEST, panel);
 		springLayout.putConstraint(SpringLayout.NORTH, panel, 35, SpringLayout.NORTH, frame.getContentPane());
 		springLayout.putConstraint(SpringLayout.WEST, panel, 119, SpringLayout.WEST, frame.getContentPane());
 		springLayout.putConstraint(SpringLayout.EAST, panel, -26, SpringLayout.EAST, frame.getContentPane());
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JButton btnNewButton_4 = new JButton("UP");
-		springLayout.putConstraint(SpringLayout.SOUTH, panel, -17, SpringLayout.NORTH, btnNewButton_4);
-		springLayout.putConstraint(SpringLayout.EAST, btnNewButton_4, -97, SpringLayout.EAST, frame.getContentPane());
-		springLayout.putConstraint(SpringLayout.WEST, btnNewButton_4, -182, SpringLayout.EAST, frame.getContentPane());
-		springLayout.putConstraint(SpringLayout.SOUTH, btnNewButton_4, -67, SpringLayout.SOUTH, frame.getContentPane());
-		frame.getContentPane().add(btnNewButton_4);
+		JButton btnMoveUp = new JButton("UP");
+		springLayout.putConstraint(SpringLayout.SOUTH, panel, -17, SpringLayout.NORTH, btnMoveUp);
+		springLayout.putConstraint(SpringLayout.EAST, btnMoveUp, -97, SpringLayout.EAST, frame.getContentPane());
+		springLayout.putConstraint(SpringLayout.WEST, btnMoveUp, -182, SpringLayout.EAST, frame.getContentPane());
+		springLayout.putConstraint(SpringLayout.SOUTH, btnMoveUp, -67, SpringLayout.SOUTH, frame.getContentPane());
+		frame.getContentPane().add(btnMoveUp);
 		
-		JButton btnNewButton_5 = new JButton("LEFT");
-		frame.getContentPane().add(btnNewButton_5);
+		JButton btnMoveLeft = new JButton("LEFT");
+		frame.getContentPane().add(btnMoveLeft);
 		
-		JButton btnNewButton_6 = new JButton("RIGHT");
-		springLayout.putConstraint(SpringLayout.WEST, btnNewButton_5, -93, SpringLayout.WEST, btnNewButton_6);
-		springLayout.putConstraint(SpringLayout.EAST, btnNewButton_5, -8, SpringLayout.WEST, btnNewButton_6);
-		springLayout.putConstraint(SpringLayout.EAST, btnNewButton_6, -50, SpringLayout.EAST, frame.getContentPane());
-		springLayout.putConstraint(SpringLayout.WEST, btnNewButton_6, -135, SpringLayout.EAST, frame.getContentPane());
-		frame.getContentPane().add(btnNewButton_6);
+		JButton btnMoveRight = new JButton("RIGHT");
+		springLayout.putConstraint(SpringLayout.WEST, btnMoveLeft, -93, SpringLayout.WEST, btnMoveRight);
+		springLayout.putConstraint(SpringLayout.EAST, btnMoveLeft, -8, SpringLayout.WEST, btnMoveRight);
+		springLayout.putConstraint(SpringLayout.EAST, btnMoveRight, -50, SpringLayout.EAST, frame.getContentPane());
+		springLayout.putConstraint(SpringLayout.WEST, btnMoveRight, -135, SpringLayout.EAST, frame.getContentPane());
+		frame.getContentPane().add(btnMoveRight);
 		
-		JButton btnNewButton_7 = new JButton("DOWN");
-		springLayout.putConstraint(SpringLayout.SOUTH, btnNewButton_6, -5, SpringLayout.NORTH, btnNewButton_7);
-		springLayout.putConstraint(SpringLayout.SOUTH, btnNewButton_5, -5, SpringLayout.NORTH, btnNewButton_7);
-		springLayout.putConstraint(SpringLayout.EAST, btnNewButton_7, 0, SpringLayout.EAST, btnNewButton_4);
-		springLayout.putConstraint(SpringLayout.WEST, btnNewButton_7, -182, SpringLayout.EAST, frame.getContentPane());
-		springLayout.putConstraint(SpringLayout.NORTH, btnNewButton_7, -33, SpringLayout.SOUTH, frame.getContentPane());
-		springLayout.putConstraint(SpringLayout.SOUTH, btnNewButton_7, -10, SpringLayout.SOUTH, frame.getContentPane());
-		frame.getContentPane().add(btnNewButton_7);
+		JButton btnMoveDown = new JButton("DOWN");
+		springLayout.putConstraint(SpringLayout.SOUTH, btnMoveRight, -5, SpringLayout.NORTH, btnMoveDown);
+		springLayout.putConstraint(SpringLayout.SOUTH, btnMoveLeft, -5, SpringLayout.NORTH, btnMoveDown);
+		springLayout.putConstraint(SpringLayout.EAST, btnMoveDown, 0, SpringLayout.EAST, btnMoveUp);
+		springLayout.putConstraint(SpringLayout.WEST, btnMoveDown, -182, SpringLayout.EAST, frame.getContentPane());
+		springLayout.putConstraint(SpringLayout.NORTH, btnMoveDown, -33, SpringLayout.SOUTH, frame.getContentPane());
+		springLayout.putConstraint(SpringLayout.SOUTH, btnMoveDown, -10, SpringLayout.SOUTH, frame.getContentPane());
+		frame.getContentPane().add(btnMoveDown);
 		
 		JLabel lblKennysQuest = new JLabel("Kenny's Quest");
 		lblKennysQuest.setForeground(new Color(128, 128, 0));
 		springLayout.putConstraint(SpringLayout.WEST, lblKennysQuest, 10, SpringLayout.WEST, frame.getContentPane());
-		springLayout.putConstraint(SpringLayout.SOUTH, lblKennysQuest, -1, SpringLayout.NORTH, btnNewButton);
+		springLayout.putConstraint(SpringLayout.SOUTH, lblKennysQuest, -1, SpringLayout.NORTH, btnNewGame);
 		lblKennysQuest.setFont(new Font("Pristina", Font.BOLD, 24));
 		frame.getContentPane().add(lblKennysQuest);
 		
@@ -216,8 +233,15 @@ public class KennysQuest {
 		{
 		BufferedImage image = ImageIO.read(new File("testpic.jpg"));
 		JLabel picLabel = new JLabel(new ImageIcon(image));
-		 panel.add(picLabel);
-		panel.repaint();
+//		 panel.add(picLabel);
+//		 
+//		 JTextArea txtrTest = new JTextArea();
+//		 
+//		 txtrTest.setEditable(false);
+//		 txtrTest.setText("test");
+//		 txtrTest.setBounds(37, 31, 555, 302);
+//		 panel.add(txtrTest);
+		//panel.repaint();
 
 		}
 		catch(Exception e)
@@ -227,6 +251,15 @@ public class KennysQuest {
 		}
 		panel.repaint();
 		//=======================================================
+		
+		btnTest.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("test button still works!!!");	
+				
+				txtrTest.setText("testwerqerqer");
+				
+				}
+		});
 
 	}
 }
